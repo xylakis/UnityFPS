@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyNavScript : MonoBehaviour
 {
-    public Transform player;
+    public Transform player; 
     private NavMeshAgent agent;
 
     // Start is called before the first frame update

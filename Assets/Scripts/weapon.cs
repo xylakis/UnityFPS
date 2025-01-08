@@ -39,7 +39,7 @@ public class weapon : MonoBehaviour
     {
         //animator.GetComponent<Animator>();
         
-        //animator.SetTrigger("RECOIL");
+        animator.SetTrigger("RECOIL");
 
         //Instantiate the bullet
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
