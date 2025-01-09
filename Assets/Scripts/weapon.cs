@@ -14,6 +14,7 @@ public class weapon : MonoBehaviour
     public float bulletVelocity = 100f;
     public float bulletPrefabLifeTime = 3f;
 
+    //CREATE
     public Animator animator;
 
     private void Start()
@@ -37,8 +38,6 @@ public class weapon : MonoBehaviour
 
     private void FireWeapon()
     {
-        //animator.GetComponent<Animator>();
-        
         animator.SetTrigger("RECOIL");
 
         //Instantiate the bullet
