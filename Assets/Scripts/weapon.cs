@@ -11,19 +11,19 @@ public class weapon : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
-    public float bulletVelocity = 100f;
+    public float bulletVelocity = 30f;
     public float bulletPrefabLifeTime = 3f;
 
     //CREATE
-    public Animator animator;
+    //public Animator animator;
 
     private void Start()
     {
         // Ensure the Animator is assigned
-        if (animator == null)
-        {
-            animator.GetComponent<Animator>();
-        }
+        //if (animator == null)
+        //{
+        //    animator.GetComponent<Animator>();
+        //}
     }
 
     // Update is called once per frame
@@ -38,13 +38,13 @@ public class weapon : MonoBehaviour
 
     private void FireWeapon()
     {
-        animator.SetTrigger("RECOIL");
+        //animator.SetTrigger("RECOIL");
 
         //Instantiate the bullet
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
         
         // Shoot the bullet
-        bullet.GetComponent<Rigidbody>().AddForce(bulletSpawn.forward.normalized * bulletVelocity, ForceMode.Impulse);
+        bullet.GetComponent<Rigidbody>().AddForce(-bulletSpawn.right.normalized * bulletVelocity, ForceMode.Impulse);
 
         //Destroy the bullet after some time
         StartCoroutine(DestroyBulletAfterTime(bullet, bulletPrefabLifeTime));

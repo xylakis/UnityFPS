@@ -5,14 +5,25 @@ using UnityEngine;
 public class bullet : MonoBehaviour
 {
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision objectWeHit)
     {
-        if (collision.gameObject.CompareTag("Target"))
+        if (objectWeHit.gameObject.CompareTag("Target"))
         {
-            print("hit " + collision.gameObject.name + " !");
+            print("hit " + objectWeHit.gameObject.name + " !");
 
             Destroy(gameObject);
         }
+
+        if (objectWeHit.gameObject.CompareTag("Zombie"))
+        {
+            print("hit " + objectWeHit.gameObject.name + " !");
+
+            Destroy(gameObject);
+
+            objectWeHit.gameObject.GetComponent<zombie>().TakeDamage(25);
+        }
+
+
 
     }
 

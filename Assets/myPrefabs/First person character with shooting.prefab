@@ -102,7 +102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &71373085113093707
 Transform:
   m_ObjectHideFlags: 0
@@ -115,7 +115,8 @@ Transform:
   m_LocalPosition: {x: 0.23, y: -0.15600014, z: 0.827}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.70000005}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7160494275044314746}
   m_Father: {fileID: 8214837790690506331}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6901035903375181857
@@ -205,6 +206,7 @@ MonoBehaviour:
   bulletSpawn: {fileID: 7160494275044314746}
   bulletVelocity: 30
   bulletPrefabLifeTime: 3
+  animator: {fileID: 0}
 --- !u!1 &2603332752340995193
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,12 +231,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2603332752340995193}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.197, y: 0.076, z: -0.001}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.7000001}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.52999866, y: 0.5700016, z: -0.10285649}
+  m_LocalScale: {x: 0.14285713, y: 1, z: 7}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7112205910378554843}
+  m_Father: {fileID: 71373085113093707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4148698807303729097
 GameObject:
@@ -559,6 +561,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapon_01
       objectReference: {fileID: 0}
+    - target: {fileID: 4965438261709640327, guid: a35b8c32acba1334b9b31dfe8cdbc9be, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5738456080911321149, guid: a35b8c32acba1334b9b31dfe8cdbc9be, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.178
@@ -601,10 +607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 5738456080911321149, guid: a35b8c32acba1334b9b31dfe8cdbc9be, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7160494275044314746}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4965438261709640327, guid: a35b8c32acba1334b9b31dfe8cdbc9be, type: 3}
       insertIndex: -1
@@ -636,3 +639,4 @@ MonoBehaviour:
   bulletSpawn: {fileID: 7160494275044314746}
   bulletVelocity: 30
   bulletPrefabLifeTime: 3
+  animator: {fileID: 0}
