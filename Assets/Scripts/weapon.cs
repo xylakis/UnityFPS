@@ -15,15 +15,15 @@ public class weapon : MonoBehaviour
     public float bulletPrefabLifeTime = 3f;
 
     //CREATE
-    //public Animator animator;
+    public Animator animator;
 
     private void Start()
     {
-        // Ensure the Animator is assigned
-        //if (animator == null)
-        //{
-        //    animator.GetComponent<Animator>();
-        //}
+        //Ensure the Animator is assigned
+        if (animator == null)
+        {
+            animator.GetComponent<Animator>();
+        }
     }
 
     // Update is called once per frame
@@ -38,7 +38,9 @@ public class weapon : MonoBehaviour
 
     private void FireWeapon()
     {
-        //animator.SetTrigger("RECOIL");
+        animator.SetTrigger("RECOIL");
+
+        SoundManager.Instance.shootingSound.Play();
 
         //Instantiate the bullet
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
