@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -14,8 +15,21 @@ public class weapon : MonoBehaviour
     public float bulletVelocity = 30f;
     public float bulletPrefabLifeTime = 3f;
 
-    //CREATE
+    // CREATE
     public Animator animator;
+
+    //WEAPON RELOAD 
+    public float reloadTime;
+    public int magazineSize, bulletsLeft;
+    public bool isReloading;
+
+    // UI 
+    public TextMeshProUGUI ammoDisplay;
+
+    private void Awake()
+    {
+        bulletsLeft = magazineSize;
+    }
 
     private void Start()
     {
@@ -30,14 +44,28 @@ public class weapon : MonoBehaviour
     void Update()
     {
         // Left mouse click 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && bulletsLeft!=0)
         {
             FireWeapon();
         }
+
+        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft<magazineSize && isReloading==false)
+        {
+            ReloadWeapon();
+        }
+
+        if (ammoDisplay != null) 
+        {
+            ammoDisplay.text = $"{bulletsLeft}/{magazineSize}";
+        }
+
     }
 
     private void FireWeapon()
     {
+        //decrease bullet counter everytime we shoot
+        bulletsLeft--;
+
         animator.SetTrigger("RECOIL");
 
         SoundManager.Instance.shootingSound.Play();
@@ -53,12 +81,25 @@ public class weapon : MonoBehaviour
 
     }
 
+    private void ReloadWeapon()
+    {
+        isReloading = true;
+        SoundManager.Instance.reloadSound.Play();
+        Invoke("ReloadCompleted", reloadTime);
+    }
+
     //we use coroutines 
     private IEnumerator DestroyBulletAfterTime(GameObject bullet, float delay)
     {
         //wait 3 seconds before destroying game object bullet
         yield return new WaitForSeconds(delay);
         Destroy(bullet);
+    }
+
+    private void ReloadCompleted()
+    {
+        bulletsLeft = magazineSize;
+        isReloading = false;
     }
 
 

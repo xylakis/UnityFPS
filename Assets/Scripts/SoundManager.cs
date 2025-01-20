@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance { get; set; }
     
     public AudioSource shootingSound;
+    public AudioSource reloadSound;
     
     public AudioClip ZombieHurt;
     public AudioClip ZombieDeath;
