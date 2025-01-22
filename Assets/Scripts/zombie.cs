@@ -1,15 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class zombie : MonoBehaviour
 {
     private int HP = 100;
     private Animator animator;
 
+    Transform player;
+
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        player = GameObject.FindGameObjectWithTag("Character").transform;
+    
     }
 
     public void TakeDamage(int damageAmount)
@@ -32,7 +38,21 @@ public class zombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        float distanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+        if (distanceFromPlayer < 2.5f) {
+            animator.SetBool("isAttacking", true);
+        }
+        else
+        {
+            animator.SetBool("isAttacking", false);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 2.5f);
     }
 
     IEnumerator DestroyGameObjectAfterDelay(float delay)
