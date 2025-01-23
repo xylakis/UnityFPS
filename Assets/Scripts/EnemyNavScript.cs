@@ -9,6 +9,7 @@ public class EnemyNavScript : MonoBehaviour
     private NavMeshAgent agent;
 
     private GameObject enemy;
+    public bool isZombieDying;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,15 @@ public class EnemyNavScript : MonoBehaviour
     {
         // Find the Zombie GameObject
         GameObject zombie = GameObject.FindWithTag("Zombie");
-        bool isZombieDying = zombie.GetComponent<zombie>.
+
+        isZombieDying = zombie.GetComponent<zombie>().isZombieDying;
+
         agent.destination = player.position;
+
+        if (isZombieDying == true)
+        {
+            GetComponent<NavMeshAgent>().speed = 0;
+        }
+        
     }
 }

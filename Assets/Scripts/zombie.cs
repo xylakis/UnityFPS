@@ -8,7 +8,8 @@ public class zombie : MonoBehaviour
     private int HP = 100;
     private Animator animator;
 
-    private bool isZombieDying = false;
+    public bool isZombieDying = false;
+    //public bool IsZombieDead = false;
 
     Transform player;
 
