@@ -8,6 +8,8 @@ public class zombie : MonoBehaviour
     private int HP = 100;
     private Animator animator;
 
+    private bool isZombieDying = false;
+
     Transform player;
 
     void Start()
@@ -22,13 +24,14 @@ public class zombie : MonoBehaviour
     {
         HP -= damageAmount;
 
-        if (HP <= 0)
+        if (HP <= 0 && isZombieDying == false)
         {
+            isZombieDying = true;
             SoundManager.Instance.ZombieSoundsChannel.PlayOneShot(SoundManager.Instance.ZombieDeath);
             animator.SetTrigger("DIE1");
             StartCoroutine(DestroyGameObjectAfterDelay(2.5f));
         }
-        else
+        else if (HP>0 && isZombieDying == false)
         {
             //play hurt sound once
             SoundManager.Instance.ZombieSoundsChannel.PlayOneShot(SoundManager.Instance.ZombieHurt);
@@ -62,6 +65,6 @@ public class zombie : MonoBehaviour
 
         SoundManager.Instance.ZombieSoundsChannel.Stop();
         // Destroy the GameObject this script is attached to
-        Destroy(gameObject);
+        // Destroy(gameObject);
     }
 }

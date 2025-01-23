@@ -21,7 +21,7 @@ public class weapon : MonoBehaviour
     //WEAPON RELOAD 
     public float reloadTime;
     public int magazineSize, bulletsLeft;
-    public bool isReloading;
+    private bool isReloading;
 
     // UI 
     public TextMeshProUGUI ammoDisplay;
@@ -53,10 +53,12 @@ public class weapon : MonoBehaviour
         {
             ReloadWeapon();
         }
-
+        // check if ammoDisplay has been added in the Editor 
+        // and display it
         if (ammoDisplay != null) 
         {
             ammoDisplay.text = $"{bulletsLeft}/{magazineSize}";
+            
         }
 
     }

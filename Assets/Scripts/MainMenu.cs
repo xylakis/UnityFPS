@@ -5,12 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    string newGameScene = "CodingEnemies";
-
 
     public void StartNewGame()
     {
-        SceneManager.LoadScene(newGameScene);
+        SceneManager.LoadScene("CodingEnemies");
     }
 
     public void StartMiniDungeonScene()

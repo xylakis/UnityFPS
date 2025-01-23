@@ -4947,7 +4947,7 @@ PrefabInstance:
       objectReference: {fileID: 1247129871}
     - target: {fileID: 4139001473899588950, guid: 2944010c5118697458ddfcd0f001581b, type: 3}
       propertyPath: reloadTime
-      value: 1.2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4139001473899588950, guid: 2944010c5118697458ddfcd0f001581b, type: 3}
       propertyPath: ammoDisplay
@@ -5854,7 +5854,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
