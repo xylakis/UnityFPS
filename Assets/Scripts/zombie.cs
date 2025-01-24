@@ -9,7 +9,6 @@ public class zombie : MonoBehaviour
     private Animator animator;
 
     public bool isZombieDying = false;
-    //public bool IsZombieDead = false;
 
     Transform player;
 
