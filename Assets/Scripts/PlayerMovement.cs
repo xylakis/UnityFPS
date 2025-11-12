@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
 
 // taken from https://www.youtube.com/watch?v=_QajrabyTJc
 
@@ -44,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = -2f;
         }
-
 
         // Check if the Jump button was pressed and
         // if the player touches elements that are part of the Ground (in LayerMask groundMask) 
