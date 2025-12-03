@@ -16,61 +16,62 @@ public class weapon : MonoBehaviour
     public float bulletPrefabLifeTime = 3f;
 
     // CREATE
-    public Animator animator;
+    // public Animator animator;
 
     //WEAPON RELOAD 
-    public float reloadTime;
-    public int magazineSize, bulletsLeft;
-    private bool isReloading;
+    //public float reloadTime;
+    //public int magazineSize, bulletsLeft;
+    //private bool isReloading;
 
     // UI 
     public TextMeshProUGUI ammoDisplay;
 
     private void Awake()
     {
-        bulletsLeft = magazineSize;
+        //bulletsLeft = magazineSize;
     }
 
     private void Start()
     {
         //Ensure the Animator is assigned
-        if (animator == null)
-        {
-            animator.GetComponent<Animator>();
-        }
+        //if (animator == null)
+        //{
+        //    animator.GetComponent<Animator>();
+        //}
     }
 
     // Update is called once per frame
     void Update()
     {
         // Left mouse click 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && bulletsLeft!=0)
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) /*&& bulletsLeft!=0*/ )
         {
             FireWeapon();
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft<magazineSize && isReloading==false)
-        {
-            ReloadWeapon();
-        }
-        // check if ammoDisplay has been added in the Editor 
-        // and display it
-        if (ammoDisplay != null) 
-        {
-            ammoDisplay.text = $"{bulletsLeft}/{magazineSize}";
-            
-        }
+        //if (Input.GetKeyDown(KeyCode.R) && bulletsLeft<magazineSize && isReloading==false)
+        //{
+        //    ReloadWeapon();
+        //}
+        //// check if ammoDisplay has been added in the Editor 
+        //// and display it
+        //if (ammoDisplay != null)
+        //{
+        //    ammoDisplay.text = $"{bulletsLeft}/{magazineSize}";
+
+        //}
 
     }
 
     private void FireWeapon()
     {
         //decrease bullet counter everytime we shoot
-        bulletsLeft--;
+        //bulletsLeft--;
 
-        animator.SetTrigger("RECOIL");
+        //animator.SetTrigger("RECOIL");
 
-        SoundManager.Instance.shootingSound.Play();
+        //SoundManager.Instance.shootingSound.Play();
 
         //Instantiate the bullet
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
@@ -83,12 +84,12 @@ public class weapon : MonoBehaviour
 
     }
 
-    private void ReloadWeapon()
-    {
-        isReloading = true;
-        SoundManager.Instance.reloadSound.Play();
-        Invoke("ReloadCompleted", reloadTime);
-    }
+    //private void ReloadWeapon()
+    //{
+    //    isReloading = true;
+    //    SoundManager.Instance.reloadSound.Play();
+    //    Invoke("ReloadCompleted", reloadTime);
+    //}
 
     //we use coroutines 
     private IEnumerator DestroyBulletAfterTime(GameObject bullet, float delay)
@@ -98,11 +99,11 @@ public class weapon : MonoBehaviour
         Destroy(bullet);
     }
 
-    private void ReloadCompleted()
-    {
-        bulletsLeft = magazineSize;
-        isReloading = false;
-    }
+    //private void ReloadCompleted()
+    //{
+    //    bulletsLeft = magazineSize;
+    //    isReloading = false;
+    //}
 
 
 
