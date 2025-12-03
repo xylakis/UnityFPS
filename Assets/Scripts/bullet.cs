@@ -14,14 +14,14 @@ public class bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (objectWeHit.gameObject.CompareTag("Zombie"))
-        {
-            print("hit " + objectWeHit.gameObject.name + " !");
+        //if (objectWeHit.gameObject.CompareTag("Zombie"))
+        //{
+        //    print("hit " + objectWeHit.gameObject.name + " !");
 
-            Destroy(gameObject);
+        //    Destroy(gameObject);
 
-            objectWeHit.gameObject.GetComponent<zombie>().TakeDamage(25);
-        }
+        //    objectWeHit.gameObject.GetComponent<zombie>().TakeDamage(25);
+        //}
 
 
 

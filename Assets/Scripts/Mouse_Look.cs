@@ -59,7 +59,7 @@ public class Mouse_Look : MonoBehaviour
             m_timeCounter = 0.0f;
         }
 
-        Debug.Log(m_lastFramerate);
+        //Debug.Log(m_lastFramerate);
 
 
 
