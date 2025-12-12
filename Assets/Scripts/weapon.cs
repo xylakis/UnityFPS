@@ -16,7 +16,7 @@ public class weapon : MonoBehaviour
     public float bulletPrefabLifeTime = 3f;
 
     // CREATE
-    // public Animator animator;
+    public Animator animator;
 
     //WEAPON RELOAD 
     //public float reloadTime;
@@ -34,10 +34,10 @@ public class weapon : MonoBehaviour
     private void Start()
     {
         //Ensure the Animator is assigned
-        //if (animator == null)
-        //{
-        //    animator.GetComponent<Animator>();
-        //}
+        if (animator == null)
+        {
+            animator.GetComponent<Animator>();
+        }
     }
 
     // Update is called once per frame
@@ -69,7 +69,7 @@ public class weapon : MonoBehaviour
         //decrease bullet counter everytime we shoot
         //bulletsLeft--;
 
-        //animator.SetTrigger("RECOIL");
+        animator.SetTrigger("RECOIL");
 
         //SoundManager.Instance.shootingSound.Play();
 
