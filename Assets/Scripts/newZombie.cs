@@ -5,7 +5,11 @@ using UnityEngine;
 public class newZombie : MonoBehaviour
 {
     private int HP = 100;
-    
+
+    public bool isZombieDying = false;
+
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +26,17 @@ public class newZombie : MonoBehaviour
     {
         HP -=damageAmount;
 
-        if(HP <= 0)
+        if(HP <= 0 && isZombieDying == false)
         {
-            StartCoroutine(DestroyGameObjectWithDelay(.5f));
+            isZombieDying = true;
+            animator.SetTrigger("DIE");
+            StartCoroutine(DestroyGameObjectWithDelay(3.5f));
+        }
+        else if (HP > 0 && isZombieDying == false)
+        {
+            //play hurt sound once
+            //SoundManager.Instance.ZombieSoundsChannel.PlayOneShot(SoundManager.Instance.ZombieHurt);
+            animator.SetTrigger("DAMAGE");
         }
 
     }
@@ -36,6 +48,6 @@ public class newZombie : MonoBehaviour
 
         //SoundManager.Instance.ZombieSoundsChannel.Stop();
         // Destroy the GameObject this script is attached to
-        Destroy(gameObject);
+        // Destroy(gameObject);
     }
 }

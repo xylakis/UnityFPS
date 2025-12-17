@@ -25,7 +25,7 @@ public class EnemyNavScript : MonoBehaviour
         // Find the Zombie GameObject
         GameObject zombie = GameObject.FindWithTag("Zombie");
 
-        isZombieDying = zombie.GetComponent<zombie>().isZombieDying;
+        isZombieDying = zombie.GetComponent<newZombie>().isZombieDying;
 
         if (isZombieDying == true)
         {
