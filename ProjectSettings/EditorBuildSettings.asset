@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/materialScene.unity
     guid: 178aa621cdff0434ca07dbd12a692584
+  - enabled: 1
+    path: Assets/Scenes/Simple_First_person_movement.unity
+    guid: c30991443ca94734d98087e5b3dc1a92
   m_configObjects: {}

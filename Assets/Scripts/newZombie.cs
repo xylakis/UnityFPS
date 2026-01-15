@@ -23,24 +23,19 @@ public class newZombie : MonoBehaviour
     // Update is called once per frame
     void Update(){
         
-        player = GetComponent<EnemyNavScript>().player;
+        //player = GetComponent<EnemyNavScript>().player;
 
-        float distanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
+        //float distanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distanceFromPlayer < 2.5f)
-        {
-            //animator.SetBool("isAttacking", true);
-            print("Atacking Melee");
-        }
-        else
-        {
-            //animator.SetBool("isAttacking", false);
-        }
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, 2.5f);
+        //if (distanceFromPlayer < 2.5f)
+        //{
+        //    //animator.SetBool("isAttacking", true);
+        //    print("Atacking Melee");
+        //}
+        //else
+        //{
+        //    //animator.SetBool("isAttacking", false);
+        //}
     }
 
     public void TakeDamage(int damageAmount)

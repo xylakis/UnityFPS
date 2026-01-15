@@ -16,6 +16,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    public void StartFighterScene()
+    {
+        SceneManager.LoadScene("Simple_First_person_movement");
+    }
+
     public void StartMaterialScene()
     {
         SceneManager.LoadScene("materialScene");

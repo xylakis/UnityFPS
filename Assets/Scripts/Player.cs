@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     // UI 
     public TextMeshProUGUI hpDisplay;
 
-    public TextMeshProUGUI diedDisplay;
+    //public TextMeshProUGUI diedDisplay;
 
     void Update()
     {
@@ -58,15 +58,14 @@ public class Player : MonoBehaviour
                         //Debug.Log($"Player HP: {playerHP}");
                         attackTimer = 0f; // Reset the timer
 
-                        // Get the current color
+                        //Get the current color
                         Color color = bloodMaterial.color;
 
-                        // Increase the alpha by 100%
-                        color.a = 1f;
-                        
+                        //Increase the alpha by 100 %
+                       color.a = 1f;
 
 
-                        // Apply the updated color back to the material
+                        //Apply the updated color back to the material
                         bloodMaterial.color = color;
                     }
                 }
@@ -87,7 +86,7 @@ public class Player : MonoBehaviour
                         bloodMaterial.color = color;
                     }
 
-                    
+
                 }
             }
             else

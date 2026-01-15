@@ -5,8 +5,11 @@ using UnityEngine.AI;
 
 public class EnemyNavScript : MonoBehaviour
 {
-    public Transform player; 
+
     private NavMeshAgent agent;
+    private Animator animator;
+
+    
 
     //private GameObject enemy;
     private bool isZombieDying;
@@ -15,15 +18,27 @@ public class EnemyNavScript : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        agent.destination = player.position;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-        // Find the Zombie GameObject
-        //GameObject zombie = GameObject.FindWithTag("Zombie");
+        float distanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+        agent.destination = player.transform.position;
+
+        if (distanceFromPlayer < 2.5f)
+        {
+            animator.SetBool("isAttacking", true);
+            print("Atacking Melee");
+        }
+        else
+        {
+            animator.SetBool("isAttacking", false);
+        }
 
         isZombieDying = GetComponent<newZombie>().isZombieDying;
 
@@ -34,9 +49,9 @@ public class EnemyNavScript : MonoBehaviour
         
     }
 
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(transform.position, 2.5f);
-    //}
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 2.5f);
+    }
 }
