@@ -29,13 +29,6 @@ public class Player : MonoBehaviour
             hpDisplay.text = $"{playerHP}";
         }
 
-        //if (playerHP<0)
-        //{
-        //    diedDisplay.SetActive(true);
-        //    Invoke("ChangeToMain", reloadTime);
-        //}
-
-
         if (zombie != null)
         {
             // Get the Animator component from the Zombie GameObject
@@ -46,13 +39,14 @@ public class Player : MonoBehaviour
                 // Check if the zombie is attacking
                 bool isAttacking = animator.GetBool("isAttacking");
 
+                // Do damage 
                 if (isAttacking)
                 {
                     // Increment the timer
                     attackTimer += Time.deltaTime;
 
-                    // Apply damage if the timer exceeds the damage interval
-                    if (attackTimer >= damageInterval)
+                    // Apply damage if the timer exceeds the damage interval and the Zombie is not Dead
+                    if (attackTimer >= damageInterval && zombie.GetComponent<newZombie>().HP>0)
                     {
                         playerHP -= damageAmount;
                         //Debug.Log($"Player HP: {playerHP}");

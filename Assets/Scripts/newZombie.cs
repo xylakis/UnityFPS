@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class newZombie : MonoBehaviour
 {
-    private int HP = 100;
+    public int HP = 100;
 
     public bool isZombieDying = false;
 
@@ -14,6 +14,10 @@ public class newZombie : MonoBehaviour
     private Transform player;
 
     private NavMeshAgent agent;
+
+    private float attackTimer = 0f; // Timer to track attack duration
+    public float damageInterval = 2f; // Damage interval in seconds
+    public int damageAmount = 10; // Damage per interval
 
     // Start is called before the first frame update
     void Start()
@@ -36,12 +40,26 @@ public class newZombie : MonoBehaviour
         {
             animator.SetBool("isAttacking", true);
             print("Atacking Melee");
+
+            // Increment the timer
+            attackTimer += Time.deltaTime;
+
+            // Apply damage if the timer exceeds the damage interval and the Zombie is not Dead
+            if (attackTimer >= damageInterval && HP > 0)
+            {
+                player.GetComponent<Player>().playerHP -= damageAmount;
+                //Debug.Log($"Player HP: {playerHP}");
+                attackTimer = 0f; // Reset the timer
+            }
         }
         else
         {
             animator.SetBool("isAttacking", false);
+            attackTimer = 0f;
         }
+
     }
+    
 
     private void OnDrawGizmos()
     {
