@@ -8,16 +8,14 @@ public class Player : MonoBehaviour
 {
 
     public int playerHP = 100; // Initial HP of the player
-    private float attackTimer = 0f; // Timer to track attack duration
-    public float damageInterval = 2f; // Damage interval in seconds
-    public int damageAmount = 10; // Damage per interval
+    //private float attackTimer = 0f; // Timer to track attack duration
+    //public float damageInterval = 2f; // Damage interval in seconds
+    //public int damageAmount = 10; // Damage per interval
 
     public Material bloodMaterial ;
 
     // UI 
     public TextMeshProUGUI hpDisplay;
-
-    //public TextMeshProUGUI diedDisplay;
 
     void Update()
     {
@@ -42,15 +40,15 @@ public class Player : MonoBehaviour
                 // Do damage 
                 if (isAttacking)
                 {
-                    // Increment the timer
-                    attackTimer += Time.deltaTime;
+                    //// Increment the timer
+                    //attackTimer += Time.deltaTime;
 
-                    // Apply damage if the timer exceeds the damage interval and the Zombie is not Dead
-                    if (attackTimer >= damageInterval && zombie.GetComponent<newZombie>().HP>0)
-                    {
-                        playerHP -= damageAmount;
-                        //Debug.Log($"Player HP: {playerHP}");
-                        attackTimer = 0f; // Reset the timer
+                    //// Apply damage if the timer exceeds the damage interval and the Zombie is not Dead
+                    //if (attackTimer >= damageInterval && zombie.GetComponent<newZombie>().HP>0)
+                    //{
+                    //    playerHP -= damageAmount;
+                    //    //Debug.Log($"Player HP: {playerHP}");
+                    //    attackTimer = 0f; // Reset the timer
 
                         //Get the current color
                         Color color = bloodMaterial.color;
@@ -66,7 +64,7 @@ public class Player : MonoBehaviour
                 else
                 {
                     // Reset the timer if the zombie is not attacking
-                    attackTimer = 0f;
+                    //attackTimer = 0f;
 
                     // Get the current color
                     Color color = bloodMaterial.color;
