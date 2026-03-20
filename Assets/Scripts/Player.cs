@@ -86,32 +86,32 @@ public class Player : MonoBehaviour
                 Debug.LogWarning("No Animator component found on the Zombie.");
             }
         }
-        else
-        {
-            Debug.LogWarning("No GameObject with tag 'Zombie' found.");
-        }
+//         else
+//         {
+//             Debug.LogWarning("No GameObject with tag 'Zombie' found.");
+//         }
 
-        // Check if the player HP reaches zero
-        if (playerHP <= 0)
-        {
-            Debug.Log("Player is dead!");
-            // Optionally, trigger death logic here
+//         // Check if the player HP reaches zero
+//         if (playerHP <= 0)
+//         {
+//             Debug.Log("Player is dead!");
+//             // Optionally, trigger death logic here
 
-            // Unlock the cursor
-            Cursor.lockState = CursorLockMode.None;
+//             // Unlock the cursor
+//             Cursor.lockState = CursorLockMode.None;
 
-            // Make the cursor visible
-            Cursor.visible = true;
+//             // Make the cursor visible
+//             Cursor.visible = true;
 
-            //diedDisplay.SetActive(true);
-            //diedDisplay.meshRenderer.enabled = true;
-            Invoke("ChangeToMain", 2f);
-        }
+//             //diedDisplay.SetActive(true);
+//             //diedDisplay.meshRenderer.enabled = true;
+//             Invoke("ChangeToMain", 2f);
+//         }
 
-    }
+//     }
 
-    private void ChangeToMain()
-    {
-        SceneManager.LoadScene("Main_Menu");
-    }
+//     private void ChangeToMain()
+//     {
+//         SceneManager.LoadScene("Main_Menu");
+//     }
 }
